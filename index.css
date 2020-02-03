@@ -1,0 +1,78 @@
+ul, ol {
+  padding: 0;
+  position: relative;
+}
+
+ul li {
+  color: #1e7f86;
+  border-left: solid 6px #56a8eb;/*左側の線*/
+  background: #cde6ff;/*背景色*/
+  margin-bottom: 6px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 1em;
+  padding-left: 1.5em;
+  list-style-type: none!important;/*ポチ消す*/
+}
+
+ul li:hover {
+  color: #861515;
+  border-left: solid 6px #eea545;/*左側の線*/
+  background: #fae2c3;/*背景色*/
+  margin-bottom: 6px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 1em;
+  padding-left: 2em;
+  list-style-type: none!important;/*ポチ消す*/
+}
+
+hr.fade {
+  height: 1px;
+  background-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.5) 50%,
+    hsla(0, 0%, 100%, 0) 100%);
+}
+ 
+hr.fade-2 {
+  border-width: 0 0 1px;
+  border-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.5) 50%,
+    hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
+  border-style: solid;
+}
+ 
+hr.dots {
+  border-width: 0 0 8px;
+  border-style: solid;
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+   width: 216px;
+}
+ 
+hr.accessory {
+  height: 6px;
+  background-image: radial-gradient(
+    closest-side,
+    hsla(0, 0%, 50%, 1.0),
+    hsla(0, 0%, 50%, 0) 100%);
+  position: relative;
+}
+
+hr.accessory:after {
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  display:block;
+  background-color: hsl(0, 0%, 75%);
+  height: 12px;
+  width:  12px;
+  transform: rotate(45deg);
+  margin-top:  -10px;
+  margin-left: -10px;
+  border-radius: 4px 0;
+  border: 4px solid hsla(0, 0%, 100%, 0.35);
+  background-clip: padding-box;
+  box-shadow: -10px 10px 0 hsla(0, 0%, 100%, 0.15), 10px -10px 0 hsla(0, 0%, 100%, 0.15);
+}

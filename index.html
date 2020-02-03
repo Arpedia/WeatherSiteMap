@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/index.css">
+    <title>Weather Maps</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="margin-top: 1em; padding: auto;" class="text-center">WeatherMaps.com - <span id="time"></span>UTC</h2>
+      <hr class="accessory" />
+      <h4 class="text-center" id="general">一般向け情報</h4>
+      <hr />
+      <ul>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="http://www.jma.go.jp/jp/g3/" target="_blank"><li>地上天気図(実況・予想、カラー・白黒）</li></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="https://www.jma.go.jp/jp/highresorad/" target="_blank"><li>降水ナウキャスト</li></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="https://www.jma.go.jp/jp/kaikotan/index.html" target="_blank"><li>降水短時間予報</li></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="https://www.jma.go.jp/jp/typh/" target="_blank"><li>台風情報</li></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="https://www.jma.go.jp/jp/radnowc/" target="_blank"><li>レーダーナウキャスト</li></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a href="https://www.jma.go.jp/jp/gms/" target="_blank"><li>気象衛星</li></a>
+          </div>
+        </div>
+      </ul>
+      <hr class="dots" />
+      <h3 id="info">気象情報</h3>
+      <hr />
+      <ul>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="https://www.jma.go.jp/jp/kishojoho/" target="_blank"><li>全般気象情報(全国)</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/101_index.html" target="_blank"><li>北海道地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/102_index.html" target="_blank"><li>東北地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/103_index.html" target="_blank"><li>関東甲信地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/104_index.html" target="_blank"><li>北陸地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/105_index.html" target="_blank"><li>東海地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/106_index.html" target="_blank"><li>近畿地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/107_index.html" target="_blank"><li>中国地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/108_index.html" target="_blank"><li>四国地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/109_index.html" target="_blank"><li>九州北部地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/110_index.html" target="_blank"><li>九州南部地方</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/kishojoho/111_index.html" target="_blank"><li>沖縄地方</li></a>
+          </div>
+        </div>
+      </ul>
+      <hr class="dots" />
+      <h3 id="high-level">高層天気図</h3>
+      <hr />
+      <ul>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋200hPa高度・気温・風・圏界面天気図（AUPA20）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupa20_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupa20_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋250hPa高度・気温・風天気図（AUPA25）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupa25_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupa25_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 北太平洋300hPa高度・気温・風天気図（AUPN30）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupn30_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupn30_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア500hPa・300hPa高度・気温・風・等風速線天気図（AUPQ35）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupq35_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupq35_12.pdf/" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア850hPa・700hPa高度・気温・風・湿数天気図（AUPQ78）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupq78_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/aupq78_00.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 北半球500hPa高度・気温天気図（AUXN50）</p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/auxn50_00.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 極東850hPa気温・風、700hPa上昇流／500hPa高度・渦度天気図（AXFE578）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/axfe578_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/axfe578_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア地上気圧、850hPa気温／500hPa高度・渦度天気図（FEAS/FEAS50）</p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas50_00.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 高層断面図（風・気温・露点等）東経130度／140度解析（AXJP130/AXJP140）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/axjp140_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/axjp140_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+      </ul>
+      <hr class="dots" />
+      <h3 id="numerical-map">数値予報天気図</h3>
+      <hr />
+      <ul>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋250hPa高度・気温・風24時間予想図（FUPA252）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa252_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa252_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋300hPa高度・気温・風24時間予想図（FUPA302）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa302_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa302_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋400hPa高度・気温・風24時間予想図（FUPA402）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa402_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa402_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 アジア太平洋500hPa高度・気温・風24時間予想図（FUPA502）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa502_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa502_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p style="padding-top:0.5em;">〇 極東850hPa気温・風、700hPa上昇流／700hPa湿数、500hPa気温予想図</p>
+          </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 12・24時間予想(FXFE5782)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa402_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fupa402_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 36・48時間予想(FXFE5784)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe5784_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe5784_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 72時間予想(FXFE577)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe577_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe577_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p style="padding-top:0.5em;">〇 極東地上気圧・風・降水量／500hPa高度・渦度予想図</p>
+          </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 12・24時間予想(FXFE502)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe502_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe502_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 36・48時間予想(FXFE504)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe504_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe504_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 72時間予想(FXFE507)</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe507_00.pdf" target="_blank"><li>00UTC</li></a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxfe507_12.pdf" target="_blank"><li>12UTC</li></a>
+            </div>  
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p style="padding-top:0.5em;">〇 アジア地上気圧、850hPa気温／500hPa高度・渦度予想図</p>
+          </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 24時間予想（FEAS02/FEAS502）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas502_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 48時間予想（FEAS04/FEAS504）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas504_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 72時間予想（FEAS07/FEAS507）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas507_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 96時間予想（FEAS09/FEAS509）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas509_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 120時間予想（FEAS12/FEAS512）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas512_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 144時間予想（FEAS14/FEAS514）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas514_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 168時間予想（FEAS16/FEAS516）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas516_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 192時間予想（FEAS19/FEAS519）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas519_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 216時間予想（FEAS21/FEAS521）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas521_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 240時間予想（FEAS24/FEAS524）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas524_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">◎ 264時間予想（FEAS26/FEAS526）</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/feas526_00.pdf" target="_blank"><li>12UTC</li></a>
+            </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <p style="padding-top:0.5em;">〇 日本850hPa相当温位・風12・24・36・48時間予想図（FXJP854）</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxjp854_00.pdf" target="_blank"><li>00UTC</li></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <a href="https://www.jma.go.jp/jp/metcht/pdf/kosou/fxjp854_12.pdf" target="_blank"><li>12UTC</li></a>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>
